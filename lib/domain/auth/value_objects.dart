@@ -19,8 +19,20 @@ class Password extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
   factory Password(String input) {
-    return Password._(validateEmailAddress(input));
+    return Password._(validatePassword(input));
   }
 
   const Password._(this.value);
+}
+
+class Username extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+  // late bool verified;
+
+  factory Username(String input) {
+    return Username._(validateUsername(input));
+  }
+
+  const Username._(this.value);
 }

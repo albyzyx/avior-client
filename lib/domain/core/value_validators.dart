@@ -20,3 +20,12 @@ Either<ValueFailure<String>, String> validatePassword(String input) {
     return left(ValueFailure.invalidPassword(failedValue: input));
   }
 }
+
+Either<ValueFailure<String>, String> validateUsername(String input) {
+  // You can also add some advanced username checks (uppercase/lowercase, at least 1 number, ...)
+  if (input.length >= 4) {
+    return right(input);
+  } else {
+    return left(ValueFailure.invalidUsername(failedValue: input));
+  }
+}
