@@ -149,6 +149,21 @@ abstract class _Started implements SignUpFormEvent {
 class _$SignUpFormStateTearOff {
   const _$SignUpFormStateTearOff();
 
+  _SignupFormState call(
+      {required Username username,
+      required EmailAddress email,
+      required Password password,
+      required bool showErrorMessages,
+      required dynamic authResponse}) {
+    return _SignupFormState(
+      username: username,
+      email: email,
+      password: password,
+      showErrorMessages: showErrorMessages,
+      authResponse: authResponse,
+    );
+  }
+
   _Initial initial() {
     return const _Initial();
   }
@@ -160,23 +175,31 @@ const $SignUpFormState = _$SignUpFormStateTearOff();
 /// @nodoc
 mixin _$SignUpFormState {
   @optionalTypeArgs
-  TResult when<TResult extends Object?>({
+  TResult when<TResult extends Object?>(
+    TResult Function(Username username, EmailAddress email, Password password,
+            bool showErrorMessages, dynamic authResponse)
+        $default, {
     required TResult Function() initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(Username username, EmailAddress email, Password password,
+            bool showErrorMessages, dynamic authResponse)?
+        $default, {
     TResult Function()? initial,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object?>({
+  TResult map<TResult extends Object?>(
+    TResult Function(_SignupFormState value) $default, {
     required TResult Function(_Initial value) initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_SignupFormState value)? $default, {
     TResult Function(_Initial value)? initial,
     required TResult orElse(),
   }) =>
@@ -198,6 +221,188 @@ class _$SignUpFormStateCopyWithImpl<$Res>
   final SignUpFormState _value;
   // ignore: unused_field
   final $Res Function(SignUpFormState) _then;
+}
+
+/// @nodoc
+abstract class _$SignupFormStateCopyWith<$Res> {
+  factory _$SignupFormStateCopyWith(
+          _SignupFormState value, $Res Function(_SignupFormState) then) =
+      __$SignupFormStateCopyWithImpl<$Res>;
+  $Res call(
+      {Username username,
+      EmailAddress email,
+      Password password,
+      bool showErrorMessages,
+      dynamic authResponse});
+}
+
+/// @nodoc
+class __$SignupFormStateCopyWithImpl<$Res>
+    extends _$SignUpFormStateCopyWithImpl<$Res>
+    implements _$SignupFormStateCopyWith<$Res> {
+  __$SignupFormStateCopyWithImpl(
+      _SignupFormState _value, $Res Function(_SignupFormState) _then)
+      : super(_value, (v) => _then(v as _SignupFormState));
+
+  @override
+  _SignupFormState get _value => super._value as _SignupFormState;
+
+  @override
+  $Res call({
+    Object? username = freezed,
+    Object? email = freezed,
+    Object? password = freezed,
+    Object? showErrorMessages = freezed,
+    Object? authResponse = freezed,
+  }) {
+    return _then(_SignupFormState(
+      username: username == freezed
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as Username,
+      email: email == freezed
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as EmailAddress,
+      password: password == freezed
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as Password,
+      showErrorMessages: showErrorMessages == freezed
+          ? _value.showErrorMessages
+          : showErrorMessages // ignore: cast_nullable_to_non_nullable
+              as bool,
+      authResponse:
+          authResponse == freezed ? _value.authResponse : authResponse,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_SignupFormState implements _SignupFormState {
+  const _$_SignupFormState(
+      {required this.username,
+      required this.email,
+      required this.password,
+      required this.showErrorMessages,
+      required this.authResponse});
+
+  @override
+  final Username username;
+  @override
+  final EmailAddress email;
+  @override
+  final Password password;
+  @override
+  final bool showErrorMessages;
+  @override
+  final dynamic authResponse;
+
+  @override
+  String toString() {
+    return 'SignUpFormState(username: $username, email: $email, password: $password, showErrorMessages: $showErrorMessages, authResponse: $authResponse)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _SignupFormState &&
+            (identical(other.username, username) ||
+                const DeepCollectionEquality()
+                    .equals(other.username, username)) &&
+            (identical(other.email, email) ||
+                const DeepCollectionEquality().equals(other.email, email)) &&
+            (identical(other.password, password) ||
+                const DeepCollectionEquality()
+                    .equals(other.password, password)) &&
+            (identical(other.showErrorMessages, showErrorMessages) ||
+                const DeepCollectionEquality()
+                    .equals(other.showErrorMessages, showErrorMessages)) &&
+            (identical(other.authResponse, authResponse) ||
+                const DeepCollectionEquality()
+                    .equals(other.authResponse, authResponse)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(username) ^
+      const DeepCollectionEquality().hash(email) ^
+      const DeepCollectionEquality().hash(password) ^
+      const DeepCollectionEquality().hash(showErrorMessages) ^
+      const DeepCollectionEquality().hash(authResponse);
+
+  @JsonKey(ignore: true)
+  @override
+  _$SignupFormStateCopyWith<_SignupFormState> get copyWith =>
+      __$SignupFormStateCopyWithImpl<_SignupFormState>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(Username username, EmailAddress email, Password password,
+            bool showErrorMessages, dynamic authResponse)
+        $default, {
+    required TResult Function() initial,
+  }) {
+    return $default(username, email, password, showErrorMessages, authResponse);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(Username username, EmailAddress email, Password password,
+            bool showErrorMessages, dynamic authResponse)?
+        $default, {
+    TResult Function()? initial,
+    required TResult orElse(),
+  }) {
+    if ($default != null) {
+      return $default(
+          username, email, password, showErrorMessages, authResponse);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_SignupFormState value) $default, {
+    required TResult Function(_Initial value) initial,
+  }) {
+    return $default(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_SignupFormState value)? $default, {
+    TResult Function(_Initial value)? initial,
+    required TResult orElse(),
+  }) {
+    if ($default != null) {
+      return $default(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SignupFormState implements SignUpFormState {
+  const factory _SignupFormState(
+      {required Username username,
+      required EmailAddress email,
+      required Password password,
+      required bool showErrorMessages,
+      required dynamic authResponse}) = _$_SignupFormState;
+
+  Username get username => throw _privateConstructorUsedError;
+  EmailAddress get email => throw _privateConstructorUsedError;
+  Password get password => throw _privateConstructorUsedError;
+  bool get showErrorMessages => throw _privateConstructorUsedError;
+  dynamic get authResponse => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$SignupFormStateCopyWith<_SignupFormState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -235,7 +440,10 @@ class _$_Initial implements _Initial {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>({
+  TResult when<TResult extends Object?>(
+    TResult Function(Username username, EmailAddress email, Password password,
+            bool showErrorMessages, dynamic authResponse)
+        $default, {
     required TResult Function() initial,
   }) {
     return initial();
@@ -243,7 +451,10 @@ class _$_Initial implements _Initial {
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(Username username, EmailAddress email, Password password,
+            bool showErrorMessages, dynamic authResponse)?
+        $default, {
     TResult Function()? initial,
     required TResult orElse(),
   }) {
@@ -255,7 +466,8 @@ class _$_Initial implements _Initial {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>({
+  TResult map<TResult extends Object?>(
+    TResult Function(_SignupFormState value) $default, {
     required TResult Function(_Initial value) initial,
   }) {
     return initial(this);
@@ -263,7 +475,8 @@ class _$_Initial implements _Initial {
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_SignupFormState value)? $default, {
     TResult Function(_Initial value)? initial,
     required TResult orElse(),
   }) {

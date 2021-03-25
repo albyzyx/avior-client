@@ -14,6 +14,14 @@ class FirebaseAuthFacade implements IAuthFacade {
   FirebaseAuthFacade(this._firebaseAuth);
 
   @override
+  Future<Either<AuthFailure, Unit>> checkUsernameAvailablity(
+      {required Username username}) async {
+    final usernameString = username.getOrCrash();
+    //TODO: Implement username avail check
+    return right(unit);
+  }
+
+  @override
   Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword(
       {required Username username,
       required EmailAddress email,

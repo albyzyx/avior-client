@@ -9,4 +9,6 @@ abstract class IAuthFacade {
       {required Username username,
       required EmailAddress email,
       required Password password});
+  Future<Either<AuthFailure, Unit>> checkUsernameAvailablity(
+      {required Username username});
 }
