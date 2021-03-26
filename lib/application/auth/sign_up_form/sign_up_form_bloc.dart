@@ -11,7 +11,7 @@ part 'sign_up_form_state.dart';
 part 'sign_up_form_bloc.freezed.dart';
 
 class SignUpFormBloc extends Bloc<SignUpFormEvent, SignUpFormState> {
-  SignUpFormBloc() : super(_Initial());
+  SignUpFormBloc() : super(SignUpFormState.initial());
 
   @override
   Stream<SignUpFormState> mapEventToState(

@@ -10,4 +10,6 @@ abstract class ValueFailure<T> with _$ValueFailure<T> {
       InvalidPassword<T>;
   const factory ValueFailure.invalidUsername({required T failedValue}) =
       InvalidUsername<T>;
+  const factory ValueFailure.invalidName({required T failedValue}) =
+      InvalidName<T>;
 }

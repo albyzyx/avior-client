@@ -36,3 +36,15 @@ class Username extends ValueObject<String> {
 
   const Username._(this.value);
 }
+
+class FullName extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+  // late bool verified;
+
+  factory FullName(String input) {
+    return FullName._(validateName(input));
+  }
+
+  const FullName._(this.value);
+}
