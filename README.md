@@ -1,4 +1,4 @@
-# avior
+# Avior
 
 A new Flutter project.
 
