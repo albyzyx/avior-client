@@ -1,5 +1,9 @@
 import 'package:another_flushbar/flushbar_helper.dart';
+import 'package:avior/application/auth/auth_bloc.dart';
 import 'package:avior/application/auth/signin_form/signin_form_bloc.dart';
+import 'package:avior/presentation/routes/routes.dart';
+import 'package:avior/presentation/sign_in/widgets/error_dialog.dart';
+import 'package:avior/presentation/sign_up/sign_up_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -8,23 +12,41 @@ class SignInForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<SigninFormBloc, SigninFormState>(
       listener: (context, state) {
-        print("fasdfjlakh");
-        print(state.authResponse);
         state.authResponse.fold(() => null, (either) {
           either.fold(
-              (authFailure) => FlushbarHelper.createError(
-                      message: authFailure.map(
-                          serverError: (_) => 'serverError',
-                          emailAlreadyExist: (_) => 'emailAlreadyExist',
-                          usernameAlreadyExist: (_) => 'usernameAlreadyExist',
-                          invalidCredentials: (_) => 'invalidCredentials'))
-                  .show(context),
-              (r) => null);
+              (authFailure) => authFailure.maybeMap(
+                    serverError: (_) => showDialog(
+                        context: context,
+                        builder: (BuildContext context) => errorDialog(
+                            context,
+                            'Network error',
+                            'We have encountered an network issue. Try again')),
+                    invalidCredentials: (_) => showDialog(
+                        context: context,
+                        builder: (BuildContext context) => errorDialog(
+                            context,
+                            'Invalid credentials',
+                            'The email and password entered does not match')),
+                    unknownErrorOccurred: (_) => showDialog(
+                        context: context,
+                        builder: (BuildContext context) => errorDialog(
+                            context,
+                            'Unknown error',
+                            'An unknown error has occured. Try again')),
+                    orElse: () => '',
+                  ),
+              (r) => Navigator.of(context)
+                  .pushReplacementNamed(Routes.navigationBar));
         });
       },
       builder: (context, state) {
+        final autoValidateMode =
+            context.read<SigninFormBloc>().state.showErrorMessages
+                ? AutovalidateMode.always
+                : AutovalidateMode.disabled;
+        final isSubmitting = state.isSubmitting;
         return Form(
-          autovalidate: state.showErrorMessages,
+          autovalidateMode: autoValidateMode,
           child: Center(
             child: SizedBox(
               width: 350.0,
@@ -95,40 +117,55 @@ class SignInForm extends StatelessWidget {
                     width: double.infinity,
                     height: 50.0,
                     child: ElevatedButton(
-                      onPressed: () {
-                        context.read<SigninFormBloc>().add(
-                            const SigninFormEvent.signinWithEmailAndPassword());
-                      },
-                      child: const Text(
-                        'Login',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                      onPressed: isSubmitting
+                          ? null
+                          : () {
+                              context.read<SigninFormBloc>().add(
+                                  const SigninFormEvent
+                                      .signinWithEmailAndPassword());
+                            },
+                      child: isSubmitting
+                          ? const SizedBox(
+                              height: 20,
+                              width: 20,
+                              child: CircularProgressIndicator(
+                                strokeWidth: 2.0,
+                                valueColor:
+                                    AlwaysStoppedAnimation(Colors.white),
+                              ),
+                            )
+                          : const Text(
+                              'Login',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
                     ),
                   ),
                   const Spacer(flex: 4),
                   const Divider(
-                    color: Colors.grey,
                     thickness: 0.5,
                   ),
                   GestureDetector(
-                    onTap: () => {},
+                    onTap: () => {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => SignUpPage()))
+                    },
                     child: SizedBox(
                       height: 30.0,
                       width: double.infinity,
                       child: Center(
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            const Text(
+                          children: const [
+                            Text(
                               "Don't have an account?",
                               style: TextStyle(
                                 fontWeight: FontWeight.w300,
                               ),
                             ),
-                            const SizedBox(width: 3.0),
-                            const Text(
+                            SizedBox(width: 3.0),
+                            Text(
                               'Sign up.',
                               style: TextStyle(
                                 fontWeight: FontWeight.w500,
@@ -139,7 +176,7 @@ class SignInForm extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 20.0),
+                  const SizedBox(height: 20.0),
                 ],
               ),
             ),

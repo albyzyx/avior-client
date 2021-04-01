@@ -13,12 +13,7 @@ Either<ValueFailure<String>, String> validateEmailAddress(String input) {
 }
 
 Either<ValueFailure<String>, String> validateName(String input) {
-  const nameRegex = r"""^[\\p{L} .'-]+$""";
-  if (RegExp(nameRegex).hasMatch(input)) {
-    return right(input);
-  } else {
-    return left(ValueFailure.invalidName(failedValue: input));
-  }
+  return right(input);
 }
 
 Either<ValueFailure<String>, String> validatePassword(String input) {

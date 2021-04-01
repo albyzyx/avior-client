@@ -31,6 +31,10 @@ class _$AuthFailureTearOff {
   InvalidCredentials invalidCredentials() {
     return const InvalidCredentials();
   }
+
+  UnknownErrorOccured unknownErrorOccurred() {
+    return const UnknownErrorOccured();
+  }
 }
 
 /// @nodoc
@@ -44,6 +48,7 @@ mixin _$AuthFailure {
     required TResult Function() emailAlreadyExist,
     required TResult Function() usernameAlreadyExist,
     required TResult Function() invalidCredentials,
+    required TResult Function() unknownErrorOccurred,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -52,6 +57,7 @@ mixin _$AuthFailure {
     TResult Function()? emailAlreadyExist,
     TResult Function()? usernameAlreadyExist,
     TResult Function()? invalidCredentials,
+    TResult Function()? unknownErrorOccurred,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -61,6 +67,7 @@ mixin _$AuthFailure {
     required TResult Function(EmailAlreadyExist value) emailAlreadyExist,
     required TResult Function(UsernameAlreadyExist value) usernameAlreadyExist,
     required TResult Function(InvalidCredentials value) invalidCredentials,
+    required TResult Function(UnknownErrorOccured value) unknownErrorOccurred,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,6 +76,7 @@ mixin _$AuthFailure {
     TResult Function(EmailAlreadyExist value)? emailAlreadyExist,
     TResult Function(UsernameAlreadyExist value)? usernameAlreadyExist,
     TResult Function(InvalidCredentials value)? invalidCredentials,
+    TResult Function(UnknownErrorOccured value)? unknownErrorOccurred,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -132,6 +140,7 @@ class _$ServerError implements ServerError {
     required TResult Function() emailAlreadyExist,
     required TResult Function() usernameAlreadyExist,
     required TResult Function() invalidCredentials,
+    required TResult Function() unknownErrorOccurred,
   }) {
     return serverError();
   }
@@ -143,6 +152,7 @@ class _$ServerError implements ServerError {
     TResult Function()? emailAlreadyExist,
     TResult Function()? usernameAlreadyExist,
     TResult Function()? invalidCredentials,
+    TResult Function()? unknownErrorOccurred,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -158,6 +168,7 @@ class _$ServerError implements ServerError {
     required TResult Function(EmailAlreadyExist value) emailAlreadyExist,
     required TResult Function(UsernameAlreadyExist value) usernameAlreadyExist,
     required TResult Function(InvalidCredentials value) invalidCredentials,
+    required TResult Function(UnknownErrorOccured value) unknownErrorOccurred,
   }) {
     return serverError(this);
   }
@@ -169,6 +180,7 @@ class _$ServerError implements ServerError {
     TResult Function(EmailAlreadyExist value)? emailAlreadyExist,
     TResult Function(UsernameAlreadyExist value)? usernameAlreadyExist,
     TResult Function(InvalidCredentials value)? invalidCredentials,
+    TResult Function(UnknownErrorOccured value)? unknownErrorOccurred,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -225,6 +237,7 @@ class _$EmailAlreadyExist implements EmailAlreadyExist {
     required TResult Function() emailAlreadyExist,
     required TResult Function() usernameAlreadyExist,
     required TResult Function() invalidCredentials,
+    required TResult Function() unknownErrorOccurred,
   }) {
     return emailAlreadyExist();
   }
@@ -236,6 +249,7 @@ class _$EmailAlreadyExist implements EmailAlreadyExist {
     TResult Function()? emailAlreadyExist,
     TResult Function()? usernameAlreadyExist,
     TResult Function()? invalidCredentials,
+    TResult Function()? unknownErrorOccurred,
     required TResult orElse(),
   }) {
     if (emailAlreadyExist != null) {
@@ -251,6 +265,7 @@ class _$EmailAlreadyExist implements EmailAlreadyExist {
     required TResult Function(EmailAlreadyExist value) emailAlreadyExist,
     required TResult Function(UsernameAlreadyExist value) usernameAlreadyExist,
     required TResult Function(InvalidCredentials value) invalidCredentials,
+    required TResult Function(UnknownErrorOccured value) unknownErrorOccurred,
   }) {
     return emailAlreadyExist(this);
   }
@@ -262,6 +277,7 @@ class _$EmailAlreadyExist implements EmailAlreadyExist {
     TResult Function(EmailAlreadyExist value)? emailAlreadyExist,
     TResult Function(UsernameAlreadyExist value)? usernameAlreadyExist,
     TResult Function(InvalidCredentials value)? invalidCredentials,
+    TResult Function(UnknownErrorOccured value)? unknownErrorOccurred,
     required TResult orElse(),
   }) {
     if (emailAlreadyExist != null) {
@@ -318,6 +334,7 @@ class _$UsernameAlreadyExist implements UsernameAlreadyExist {
     required TResult Function() emailAlreadyExist,
     required TResult Function() usernameAlreadyExist,
     required TResult Function() invalidCredentials,
+    required TResult Function() unknownErrorOccurred,
   }) {
     return usernameAlreadyExist();
   }
@@ -329,6 +346,7 @@ class _$UsernameAlreadyExist implements UsernameAlreadyExist {
     TResult Function()? emailAlreadyExist,
     TResult Function()? usernameAlreadyExist,
     TResult Function()? invalidCredentials,
+    TResult Function()? unknownErrorOccurred,
     required TResult orElse(),
   }) {
     if (usernameAlreadyExist != null) {
@@ -344,6 +362,7 @@ class _$UsernameAlreadyExist implements UsernameAlreadyExist {
     required TResult Function(EmailAlreadyExist value) emailAlreadyExist,
     required TResult Function(UsernameAlreadyExist value) usernameAlreadyExist,
     required TResult Function(InvalidCredentials value) invalidCredentials,
+    required TResult Function(UnknownErrorOccured value) unknownErrorOccurred,
   }) {
     return usernameAlreadyExist(this);
   }
@@ -355,6 +374,7 @@ class _$UsernameAlreadyExist implements UsernameAlreadyExist {
     TResult Function(EmailAlreadyExist value)? emailAlreadyExist,
     TResult Function(UsernameAlreadyExist value)? usernameAlreadyExist,
     TResult Function(InvalidCredentials value)? invalidCredentials,
+    TResult Function(UnknownErrorOccured value)? unknownErrorOccurred,
     required TResult orElse(),
   }) {
     if (usernameAlreadyExist != null) {
@@ -411,6 +431,7 @@ class _$InvalidCredentials implements InvalidCredentials {
     required TResult Function() emailAlreadyExist,
     required TResult Function() usernameAlreadyExist,
     required TResult Function() invalidCredentials,
+    required TResult Function() unknownErrorOccurred,
   }) {
     return invalidCredentials();
   }
@@ -422,6 +443,7 @@ class _$InvalidCredentials implements InvalidCredentials {
     TResult Function()? emailAlreadyExist,
     TResult Function()? usernameAlreadyExist,
     TResult Function()? invalidCredentials,
+    TResult Function()? unknownErrorOccurred,
     required TResult orElse(),
   }) {
     if (invalidCredentials != null) {
@@ -437,6 +459,7 @@ class _$InvalidCredentials implements InvalidCredentials {
     required TResult Function(EmailAlreadyExist value) emailAlreadyExist,
     required TResult Function(UsernameAlreadyExist value) usernameAlreadyExist,
     required TResult Function(InvalidCredentials value) invalidCredentials,
+    required TResult Function(UnknownErrorOccured value) unknownErrorOccurred,
   }) {
     return invalidCredentials(this);
   }
@@ -448,6 +471,7 @@ class _$InvalidCredentials implements InvalidCredentials {
     TResult Function(EmailAlreadyExist value)? emailAlreadyExist,
     TResult Function(UsernameAlreadyExist value)? usernameAlreadyExist,
     TResult Function(InvalidCredentials value)? invalidCredentials,
+    TResult Function(UnknownErrorOccured value)? unknownErrorOccurred,
     required TResult orElse(),
   }) {
     if (invalidCredentials != null) {
@@ -459,4 +483,101 @@ class _$InvalidCredentials implements InvalidCredentials {
 
 abstract class InvalidCredentials implements AuthFailure {
   const factory InvalidCredentials() = _$InvalidCredentials;
+}
+
+/// @nodoc
+abstract class $UnknownErrorOccuredCopyWith<$Res> {
+  factory $UnknownErrorOccuredCopyWith(
+          UnknownErrorOccured value, $Res Function(UnknownErrorOccured) then) =
+      _$UnknownErrorOccuredCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class _$UnknownErrorOccuredCopyWithImpl<$Res>
+    extends _$AuthFailureCopyWithImpl<$Res>
+    implements $UnknownErrorOccuredCopyWith<$Res> {
+  _$UnknownErrorOccuredCopyWithImpl(
+      UnknownErrorOccured _value, $Res Function(UnknownErrorOccured) _then)
+      : super(_value, (v) => _then(v as UnknownErrorOccured));
+
+  @override
+  UnknownErrorOccured get _value => super._value as UnknownErrorOccured;
+}
+
+/// @nodoc
+class _$UnknownErrorOccured implements UnknownErrorOccured {
+  const _$UnknownErrorOccured();
+
+  @override
+  String toString() {
+    return 'AuthFailure.unknownErrorOccurred()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is UnknownErrorOccured);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() serverError,
+    required TResult Function() emailAlreadyExist,
+    required TResult Function() usernameAlreadyExist,
+    required TResult Function() invalidCredentials,
+    required TResult Function() unknownErrorOccurred,
+  }) {
+    return unknownErrorOccurred();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? serverError,
+    TResult Function()? emailAlreadyExist,
+    TResult Function()? usernameAlreadyExist,
+    TResult Function()? invalidCredentials,
+    TResult Function()? unknownErrorOccurred,
+    required TResult orElse(),
+  }) {
+    if (unknownErrorOccurred != null) {
+      return unknownErrorOccurred();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ServerError value) serverError,
+    required TResult Function(EmailAlreadyExist value) emailAlreadyExist,
+    required TResult Function(UsernameAlreadyExist value) usernameAlreadyExist,
+    required TResult Function(InvalidCredentials value) invalidCredentials,
+    required TResult Function(UnknownErrorOccured value) unknownErrorOccurred,
+  }) {
+    return unknownErrorOccurred(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ServerError value)? serverError,
+    TResult Function(EmailAlreadyExist value)? emailAlreadyExist,
+    TResult Function(UsernameAlreadyExist value)? usernameAlreadyExist,
+    TResult Function(InvalidCredentials value)? invalidCredentials,
+    TResult Function(UnknownErrorOccured value)? unknownErrorOccurred,
+    required TResult orElse(),
+  }) {
+    if (unknownErrorOccurred != null) {
+      return unknownErrorOccurred(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UnknownErrorOccured implements AuthFailure {
+  const factory UnknownErrorOccured() = _$UnknownErrorOccured;
 }

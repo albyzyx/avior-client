@@ -1,5 +1,8 @@
-import 'package:avior/presentation/sign_in/sign_in_page.dart';
+import 'package:avior/application/auth/auth_bloc.dart';
+import 'package:avior/injectable.dart';
+import 'package:avior/presentation/routes/routes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class App extends StatelessWidget {
   final darkTheme = ThemeData(
@@ -10,7 +13,7 @@ class App extends StatelessWidget {
     // backgroundColor: const Color(0xFF212121),
     accentColor: Colors.white,
     accentIconTheme: const IconThemeData(color: Colors.black),
-    dividerColor: Colors.black12,
+    dividerColor: Colors.grey,
   );
 
   @override
@@ -19,11 +22,20 @@ class App extends StatelessWidget {
       onTap: () {
         WidgetsBinding.instance!.focusManager.primaryFocus?.unfocus();
       },
-      child: MaterialApp(
-        title: 'Avior App',
-        darkTheme: darkTheme,
-        debugShowCheckedModeBanner: false,
-        home: SignInPage(),
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+              create: (_) =>
+                  getIt<AuthBloc>()..add(const AuthEvent.authCheckRequested())),
+        ],
+        child: MaterialApp(
+          title: 'Avior App',
+          darkTheme: darkTheme,
+          debugShowCheckedModeBanner: false,
+          initialRoute: Routes.splashScreen,
+          routes: Routes.routes,
+          // home: SignInPage(),
+        ),
       ),
     );
   }

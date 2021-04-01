@@ -8,4 +8,5 @@ abstract class AuthFailure with _$AuthFailure {
   const factory AuthFailure.emailAlreadyExist() = EmailAlreadyExist;
   const factory AuthFailure.usernameAlreadyExist() = UsernameAlreadyExist;
   const factory AuthFailure.invalidCredentials() = InvalidCredentials;
+  const factory AuthFailure.unknownErrorOccurred() = UnknownErrorOccured;
 }

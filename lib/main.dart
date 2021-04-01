@@ -1,3 +1,5 @@
+// @dart=2.9
+
 import 'package:avior/injectable.dart';
 import 'package:avior/presentation/core/app.dart';
 import 'package:firebase_core/firebase_core.dart';
